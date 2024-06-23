@@ -4,8 +4,9 @@ import useLocation from "../../../hooks/useLocation";
 const FavouriteListModal = ({ onShowFavModal }) => {
   const { favourites } = useFavourite();
   const { setSelectedLocation } = useLocation();
+
+  
   const handleChangeLocation = (place) => {
-    console.log(place);
     setSelectedLocation({ ...place });
     onShowFavModal(false);
   };
