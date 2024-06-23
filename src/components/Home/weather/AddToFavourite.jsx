@@ -9,7 +9,7 @@ const AddToFavourite = () => {
   const [isToggleFavourite, setIsToggleFavourite] = useState(false);
   // console.log(favourites, addToFavourite, removeFromFavourite);
   const { latitude, longitude, location } = weatherData;
-  console.log(weatherData);
+  // console.log(weatherData);
 
   // useEffect for toggle fav image
 
