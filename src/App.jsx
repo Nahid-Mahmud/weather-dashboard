@@ -1,3 +1,4 @@
+import Home from "./components/Home/Home";
 import { useWeather } from "./hooks/useWeather";
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
   console.log(loading);
   return (
     <>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <Home />
     </>
   );
 }
