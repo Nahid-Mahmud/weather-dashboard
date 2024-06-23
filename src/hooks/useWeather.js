@@ -57,6 +57,8 @@ export const useWeather = () => {
             cloudPercentage: data?.clouds?.all,
             wind: data?.wind?.speed,
             time: data?.dt,
+            latitude,
+            longitude,
           };
         });
         setLoading((prev) => {
