@@ -54,7 +54,7 @@ const Search = () => {
           <img src={SearchIcon} />
         </button>
       </div>
-      {search.length >= 2 && (
+      {search.length >= 1 && (
         <ul className="fixed top-20 bg-white rounded">
           {suggestions?.map((item) => (
             <li
