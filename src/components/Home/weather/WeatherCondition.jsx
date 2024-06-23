@@ -4,8 +4,6 @@ import { useWeather } from "../../../hooks";
 const WeatherCondition = () => {
   const { weatherData, loading, error } = useWeather();
 
-  console.log(weatherData);
-
   const {
     climate,
     cloudPercentage,
