@@ -15,7 +15,7 @@ export const Header = () => {
           {/* Favourite location */}
           <Favourite onShowFavModal={setShowFavModal} />
           {/* Modal */}
-          {showFavModal && <FavouriteListModal />}
+          {showFavModal && <FavouriteListModal onShowFavModal={setShowFavModal} />}
         </div>
       </nav>
     </header>

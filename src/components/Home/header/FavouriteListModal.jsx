@@ -1,9 +1,14 @@
-import React from "react";
 import useFavourite from "../../../hooks/useFavourite";
+import useLocation from "../../../hooks/useLocation";
 
-const FavouriteListModal = () => {
+const FavouriteListModal = ({ onShowFavModal }) => {
   const { favourites } = useFavourite();
-  console.log(favourites);
+  const { setSelectedLocation } = useLocation();
+  const handleChangeLocation = (place) => {
+    console.log(place);
+    setSelectedLocation({ ...place });
+    onShowFavModal(false);
+  };
 
   return (
     <div className="max-w-xs py-4 bg-white rounded-md border-gray-500 absolute right-0 top-16 text-black shadow-lg ">
@@ -11,7 +16,7 @@ const FavouriteListModal = () => {
       <ul className="space-y-2 mt-4 *:py-2 *:px-4 *:cursor-pointer">
         {favourites?.length > 0 ? (
           favourites?.map((item) => (
-            <li key={item?.location} className="hover:bg-gray-200">
+            <li onClick={() => handleChangeLocation(item)} key={item?.location} className="hover:bg-gray-200">
               {item.location}
             </li>
           ))

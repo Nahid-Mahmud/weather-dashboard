@@ -1,10 +1,12 @@
 // https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}&units=metric
 
 import { useEffect, useState } from "react";
+import useLocation from "./useLocation";
 
 const API_KEY = import.meta.env.VITE_WEATHER_API_KEY;
 
 export const useWeather = () => {
+  const { selectedLocation } = useLocation();
   const [weatherData, setWeatherData] = useState({
     location: "",
     climate: "",
@@ -81,13 +83,18 @@ export const useWeather = () => {
       }
     };
     // get geolocation form navigator
-    navigator.geolocation.getCurrentPosition((position) => {
-      // console.log(position.coords.latitude, position.coords.longitude);
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      fetchData(latitude, longitude);
-    });
-  }, []);
+
+    if (selectedLocation?.latitude && selectedLocation?.longitude) {
+      fetchData(selectedLocation?.latitude, selectedLocation?.longitude);
+    } else {
+      navigator.geolocation.getCurrentPosition((position) => {
+        // console.log(position.coords.latitude, position.coords.longitude);
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+        fetchData(latitude, longitude);
+      });
+    }
+  }, [selectedLocation?.latitude, selectedLocation?.longitude]);
 
   return { weatherData, loading, error };
 };

@@ -1,10 +1,16 @@
 import Home from "./components/Home/Home";
-import { useWeather } from "./hooks/useWeather";
+import { FavouriteProvider, LocationProvider, WeatherProvider } from "./provider";
 
 function App() {
   return (
     <>
-      <Home />
+      <LocationProvider>
+        <FavouriteProvider>
+          <WeatherProvider>
+            <Home />
+          </WeatherProvider>
+        </FavouriteProvider>
+      </LocationProvider>
     </>
   );
 }
