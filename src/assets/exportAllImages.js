@@ -22,6 +22,7 @@ import RainIcon from "../assets/rainy.svg";
 import ThunderIcon from "../assets/thunder.svg";
 import PinIcon from "../assets/pin.svg";
 import SearchIcon from "../assets/search.svg";
+import MistIcon from "../assets/icons/mistIcon.png";
 
 export {
   ClearSkyImage,
@@ -48,4 +49,5 @@ export {
   ThunderIcon,
   PinIcon,
   SearchIcon,
+  MistIcon,
 };

@@ -6,6 +6,7 @@ import {
   RainIcon,
   ThunderIcon,
   SunnyIcon,
+  MistIcon,
 } from "../../../assets/exportAllImages";
 import { useWeatherContext } from "../../../hooks";
 import { getFormattedDate } from "../../../utils/date_utils";
@@ -15,10 +16,22 @@ const WeatherHeadline = () => {
 
   const { climate, location, time, temperature } = weatherData;
 
+  // get weather icon dinamically
+  const getWeatherIcon = (climate) => {
+    if (climate === "Clear") return SunnyIcon;
+    if (climate === "Clouds") return CloudIcon;
+    if (climate === "Haze") return HazeIcon;
+    if (climate === "Rain") return RainIcon;
+    if (climate === "Snow") return SnowIcon;
+    if (climate === "Thunderstorm") return ThunderIcon;
+    if (climate === "Mist") return MistIcon;
+    return SunnyIcon;
+  };
+
   return (
     <div>
       <div className="max-md:flex items-center justify-between md:-mt-10">
-        <img src="./assets/cloud.svg" alt="cloud" />
+        <img className="max-w-[35px]" src={getWeatherIcon(climate)} alt="cloud" />
         <div className="max-md:flex items-center max-md:space-x-4">
           <h1 className="text-[60px] lg:text-[80px] xl:text-[100px] leading-none md:mb-4">
             {Math.round(Number(temperature))}°
