@@ -1,6 +1,25 @@
 import { CloudyIcon, HumidityIcon, TempMaxIcon, TempMinIcon, WindIcon } from "../../../assets/exportAllImages";
+import { useWeather } from "../../../hooks";
 
 const WeatherCondition = () => {
+  const { weatherData, loading, error } = useWeather();
+
+  console.log(weatherData);
+
+  const {
+    climate,
+    cloudPercentage,
+    humidity,
+    latitude,
+    location,
+    longitude,
+    maxTemperature,
+    minTemperature,
+    temperature,
+    time,
+    wind,
+  } = weatherData;
+
   return (
     <div>
       <p className="text-sm lg:text-lg font-bold uppercase mb-8">thunderstorm with light drizzle</p>
@@ -8,35 +27,35 @@ const WeatherCondition = () => {
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Temp max</span>
           <div className="inline-flex space-x-4">
-            <p>19°</p>
+            <p>{Math.round(maxTemperature)}°</p>
             <img src={TempMaxIcon} alt="temp-max" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Temp min</span>
           <div className="inline-flex space-x-4">
-            <p>19°</p>
+            <p>{Math.round(minTemperature)}°</p>
             <img src={TempMinIcon} alt="temp-min" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Humadity</span>
           <div className="inline-flex space-x-4">
-            <p>58%</p>
+            <p> {Math.round(humidity)} %</p>
             <img src={HumidityIcon} alt="humidity" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Cloudy</span>
           <div className="inline-flex space-x-4">
-            <p>86%</p>
+            <p> {Math.round(cloudPercentage)} %</p>
             <img src={CloudyIcon} alt="cloudy" />
           </div>
         </li>
         <li className="text-sm lg:text-lg flex items-center justify-between space-x-4">
           <span>Wind</span>
           <div className="inline-flex space-x-4">
-            <p>5km/h</p>
+            <p>{Math.round(wind)}km/h</p>
             <img src={WindIcon} alt="wind" />
           </div>
         </li>
