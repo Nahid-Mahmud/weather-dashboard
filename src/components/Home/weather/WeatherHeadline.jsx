@@ -1,6 +1,11 @@
-import { PinIcon } from "../../../assets/exportAllImages";
+import { PinIcon, CloudIcon, HazeIcon, SnowIcon, RainIcon, ThunderIcon } from "../../../assets/exportAllImages";
+import { useWeather } from "../../../hooks";
 
 const WeatherHeadline = () => {
+  const { weatherData, loading, error } = useWeather();
+  console.log(weatherData);
+  console.log(loading, loading, error);
+  const { climate, location, time } = weatherData;
   return (
     <div>
       <div className="max-md:flex items-center justify-between md:-mt-10">

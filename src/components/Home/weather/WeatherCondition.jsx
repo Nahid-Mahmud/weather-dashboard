@@ -1,11 +1,4 @@
-import {
-  CloudIcon,
-  CloudyIcon,
-  HumidityIcon,
-  TempMaxIcon,
-  TempMinIcon,
-  WindIcon,
-} from "../../../assets/exportAllImages";
+import { CloudyIcon, HumidityIcon, TempMaxIcon, TempMinIcon, WindIcon } from "../../../assets/exportAllImages";
 
 const WeatherCondition = () => {
   return (

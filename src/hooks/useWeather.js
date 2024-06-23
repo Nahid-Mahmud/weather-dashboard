@@ -32,7 +32,7 @@ export const useWeather = () => {
         message: "Loading weather data...",
       };
     });
-        const fetchData = async (latitude, longitude) => {
+    const fetchData = async (latitude, longitude) => {
       try {
         setLoading((prev) => {
           return {
@@ -80,7 +80,7 @@ export const useWeather = () => {
     };
     // get geolocation form navigator
     navigator.geolocation.getCurrentPosition((position) => {
-      console.log(position.coords.latitude, position.coords.longitude);
+      // console.log(position.coords.latitude, position.coords.longitude);
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
       fetchData(latitude, longitude);
