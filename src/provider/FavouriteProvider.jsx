@@ -4,7 +4,7 @@ import { useLocalStorage } from "../hooks";
 const FavouriteProvider = ({ children }) => {
   const [favourites, setFavourites] = useLocalStorage("favourites", []);
 
-  // add to favourite function
+  // add to favourite function 
   const addToFavourite = (latitude, longitude, location) => {
     setFavourites((prev) => {
       return [...prev, { latitude, longitude, location }];
